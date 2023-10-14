@@ -25,7 +25,7 @@ class Discount
     #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeImmutable $end_date = null;
 
-    #[ORM\OneToMany(mappedBy: 'discount_id', targetEntity: Product::class)]
+    #[ORM\OneToMany(mappedBy: 'discount', targetEntity: Product::class)]
     private Collection $products;
 
     public function __construct()
@@ -86,7 +86,7 @@ class Discount
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
-            $product->setDiscountId($this);
+            $product->setDiscount($this);
         }
 
         return $this;
@@ -96,8 +96,8 @@ class Discount
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getDiscountId() === $this) {
-                $product->setDiscountId(null);
+            if ($product->getDiscount() === $this) {
+                $product->setDiscount(null);
             }
         }
 

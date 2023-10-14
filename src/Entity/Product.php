@@ -30,15 +30,15 @@ class Product
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?Discount $discount_id = null;
+    private ?Discount $discount = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $user_id = null;
+    private ?User $user = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Category $category_id = null;
+    private ?Category $category = null;
 
     public function getId(): ?int
     {
@@ -105,38 +105,38 @@ class Product
         return $this;
     }
 
-    public function getDiscountId(): ?Discount
+    public function getDiscount(): ?Discount
     {
-        return $this->discount_id;
+        return $this->discount;
     }
 
-    public function setDiscountId(?Discount $discount_id): static
+    public function setDiscount(?Discount $discount): static
     {
-        $this->discount_id = $discount_id;
+        $this->discount = $discount;
 
         return $this;
     }
 
-    public function getUserId(): ?User
+    public function getUser(): ?User
     {
-        return $this->user_id;
+        return $this->user;
     }
 
-    public function setUserId(?User $user_id): static
+    public function setUser(?User $user): static
     {
-        $this->user_id = $user_id;
+        $this->user = $user;
 
         return $this;
     }
 
-    public function getCategoryId(): ?Category
+    public function getCategory(): ?Category
     {
-        return $this->category_id;
+        return $this->category;
     }
 
-    public function setCategoryId(?Category $category_id): static
+    public function setCategory(?Category $category): static
     {
-        $this->category_id = $category_id;
+        $this->category = $category;
 
         return $this;
     }

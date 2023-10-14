@@ -15,10 +15,10 @@ class RoleUser
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'roleUser_id', targetEntity: User::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'roleUser', targetEntity: User::class)]
     private Collection $users;
 
     public function __construct()
@@ -55,7 +55,7 @@ class RoleUser
     {
         if (!$this->users->contains($user)) {
             $this->users->add($user);
-            $user->setRoleUserId($this);
+            $user->setRoleUser($this);
         }
 
         return $this;
@@ -65,8 +65,8 @@ class RoleUser
     {
         if ($this->users->removeElement($user)) {
             // set the owning side to null (unless already changed)
-            if ($user->getRoleUserId() === $this) {
-                $user->setRoleUserId(null);
+            if ($user->getRoleUser() === $this) {
+                $user->setRoleUser(null);
             }
         }
 

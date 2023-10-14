@@ -40,9 +40,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\ManyToOne(inversedBy: 'users')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?RoleUser $roleUser_id = null;
+    private ?RoleUser $roleUser = null;
 
-    #[ORM\OneToMany(mappedBy: 'user_id', targetEntity: Product::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Product::class)]
     private Collection $products;
 
     public function __construct()
@@ -175,14 +175,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getRoleUserId(): ?RoleUser
+    public function getRoleUser(): ?RoleUser
     {
-        return $this->roleUser_id;
+        return $this->roleUser;
     }
 
-    public function setRoleUserId(?RoleUser $roleUser_id): static
+    public function setRoleUser(?RoleUser $roleUser): static
     {
-        $this->roleUser_id = $roleUser_id;
+        $this->roleUser = $roleUser;
 
         return $this;
     }
@@ -199,7 +199,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
-            $product->setUserId($this);
+            $product->setUser($this);
         }
 
         return $this;
@@ -209,8 +209,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
-            if ($product->getUserId() === $this) {
-                $product->setUserId(null);
+            if ($product->getUser() === $this) {
+                $product->setUser(null);
             }
         }
 
