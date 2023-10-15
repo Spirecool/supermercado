@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+    <h1 class="text-center pt-5 pb-5">Bienvenue <span class="heading-color">{{ app.user ? app.user.firstname : ''}} sur votre Dashboard</a></h1>
+</div>
+
+<div class="cards-list py-5">
+    <a href="/users/">  
+    <div class="card-home">
+        <div class="card-image"> <img src="/images/cards/admin.jpg" /> 
+        </div>
+        <div class="card-title title-white">
+            <p> Utilisateurs </p>
+        </div>
+    </div>
+    </a>
+    <a href="/users/">  
+    <div class="card-home">
+        <div class="card-image"> <img src="/images/cards/products.jpg" /> 
+        </div>
+        <div class="card-title title-white">
+            <p> Produits </p>
+        </div>
+    </div>
+    </a>
+    <a href="/users/">  
+    <div class="card-home">
+        <div class="card-image"> <img src="/images/cards/categories.jpg" /> 
+        </div>
+        <div class="card-title title-white">
+            <p> Catégories </p>
+        </div>
+    </div>
+    </a>
+    <a href="/users/">  
+    <div class="card-home">
+        <div class="card-image"> <img src="/images/cards/promotions.jpg" /> 
+        </div>
+        <div class="card-title title-white">
+            <p> Promotions </p>
+        </div>
+    </div>
+    </a>
+    </div>
+
+
+
+{% endblock %}

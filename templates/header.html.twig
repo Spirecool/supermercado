@@ -19,23 +19,33 @@
             <li class="nav-item">
             <a class="nav-link" href="/catalogue">Catalogue</a>
             </li>
-            <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-            </a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
+            
+            {% if is_granted('ROLE_ADMIN') %}
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Gestion
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"> Catégories</a></li>
+                        <li><a class="dropdown-item" href="#"> Produits </a></li>
+                        <li><a class="dropdown-item" href="#"> Promotions </a></li>
+                        <li><a class="dropdown-item" href="#"> Utilisateurs </a></li>
+                    </ul>
+                </li>
 
-            </li>
+            {% endif %}
+            
             <li>
-            <button class="navbar-btn btn btn-sm btn-primary lift ms-auto"> Contact </button></li>
+                <button class="navbar-btn btn btn-sm btn-primary lift ms-auto"> Contact </button>
+            </li>
         </ul>
         
-        
-        <a href="navbar-btn btn btn-sm btn-primary ms-auto" href="/login"> Se connecter <i class="fa-solid fa-arrow-right-to-bracket">  </i></a>
-
+        {% if app.user %}
+            <a href="/deconnexion" class="logout" ><i class="fa-solid fa-arrow-right-from-bracket"></i> Se déconnecter </a>
+        {% else %}
+            <a href="/connexion" class="login" ><i class="fa-solid fa-arrow-right-to-bracket"></i> Se connecter</a>
+        {% endif %}
 
         </div>
     </div>
