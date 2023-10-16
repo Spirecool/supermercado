@@ -103,4 +103,8 @@ class Discount
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->discount_percentage;
+    }
 }
