@@ -72,4 +72,9 @@ class RoleUser
 
         return $this;
     }
+
+    // On s'assure qu'une valeur de chaîne de caractères est renvoyée, même si l'attribut est nul.
+    public function __toString() {
+        return $this->name ?? 'ROLE_ADMIN';
+    }
 }
