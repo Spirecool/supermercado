@@ -97,7 +97,6 @@ a {
 .card-home .card-title {
     text-align: center;
     border-radius: 0px 0px 40px 40px;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 800;
     font-size:24px;
     margin-top: -80px;
@@ -105,10 +104,11 @@ a {
 }
 
 .card-home .card-title p {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     letter-spacing: 1.2px;
     color: white;
+    font-size: 22px;
+    
 }
 .card-home:hover {
     transform: scale(1.1, 1.1);

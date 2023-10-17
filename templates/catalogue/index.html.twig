@@ -28,7 +28,8 @@
                 {% else %}
                     <span class="product-price f-green old-price"> {{ product.price}} €</span>
                     {# ERREUR ICI  #}
-                    <span class="product-price f-red"> {{ product.price * (product.discount.discount_percentage / 100) }} €  </span>
+                    {# <span class="product-price f-red"> {{ product.price * (product.discount_percentage / 100) }} €  </span> #}
+            
                     
                 {% endif %}
                 </div>
