@@ -20,17 +20,11 @@ class Product
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 6, scale: 2)]
+    #[ORM\Column(type: Types::INTEGER)]
     private ?string $price = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image_file = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $created_at = null;
-
-    #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?Discount $discount = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -39,6 +33,9 @@ class Product
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $discount = null;
 
     public function getId(): ?int
     {
@@ -93,29 +90,6 @@ class Product
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(\DateTimeImmutable $created_at): static
-    {
-        $this->created_at = $created_at;
-
-        return $this;
-    }
-
-    public function getDiscount(): ?Discount
-    {
-        return $this->discount;
-    }
-
-    public function setDiscount(?Discount $discount): static
-    {
-        $this->discount = $discount;
-
-        return $this;
-    }
 
     public function getUser(): ?User
     {
@@ -144,5 +118,17 @@ class Product
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getDiscount(): ?int
+    {
+        return $this->discount;
+    }
+
+    public function setDiscount(?int $discount): static
+    {
+        $this->discount = $discount;
+
+        return $this;
     }
 }

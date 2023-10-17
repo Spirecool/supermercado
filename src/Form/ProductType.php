@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Product;
+use DateTime;
+use DateTimeImmutable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Positive;
@@ -27,12 +29,10 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('image_file')
-            ->add('created_at', DateType::class, [
-                'label' => 'Date de début de la promotion',
-                'widget' => 'single_text',
-                'format' => 'yyyy-MM-dd',
-            ])
+            
             ->add('discount')
+            ->add('user')
+        
             ->add('category')
         ;
     }

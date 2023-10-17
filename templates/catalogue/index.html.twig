@@ -23,12 +23,12 @@
             <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="row">
-                {% if (product.discount is same as (null)) %}
-                    <span class="product-price f-green">{{ product.price }} € </span>
-                {% else %}
-                    <span class="product-price f-green old-price"> {{ product.price}} €</span>
-                    {# ERREUR ICI  #}
-                    {# <span class="product-price f-red"> {{ product.price * (product.discount_percentage / 100) }} €  </span> #}
+                    {% if (product.discount is same as (null)) %}
+                        <span class="product-price f-green">{{ product.price }} € </span>
+                    {% else %}
+                    <span class="product-price f-green old-price"> {{ product.price}} €</span> #}
+
+                    <span class="product-price f-red"> {{ ( (product.price - product.price * (product.discount / 100)) / 100) | number_format(2, ',', '.') }} €  </span>
             
                     
                 {% endif %}
