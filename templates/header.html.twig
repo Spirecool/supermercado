@@ -39,14 +39,21 @@
             <li class="nav-item">
             <a class="nav-link" href="/catalogue">Catalogue</a>
             </li>
-
-            <li>
+                <li>
                 <button class="navbar-btn btn btn-sm btn-primary lift ms-auto"> Contact </button>
             </li>
+
+        
         </ul>
         
         {% if app.user %}
-            <a href="/deconnexion" class="logout" ><i class="fa-solid fa-arrow-right-from-bracket"></i> Se déconnecter </a>
+            <span class="text-dark pt-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</span>
+            
+            <a href="/deconnexion" class="logout" >
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> 
+                Se déconnecter 
+            </a>
+            
         {% else %}
             {# <a href="/connexion" class="login" >
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>  #}

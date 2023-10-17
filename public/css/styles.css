@@ -1,3 +1,54 @@
+/*
+------------------------------------------------
+Table of contents
+------------------------------------------------
+01. reset css
+02. fonts
+03. global styles
+04. header
+05. footer
+06. contact
+07. homepage
+08. login
+09. responsive CSS
+
+
+/******************/
+/* 01 - RESET CSS */
+/******************/
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/**************/
+/* 02 - FONTS */
+/**************/
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+
+
+
+
+/**************/
+/* 02 - FONTS */
+/**************/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+
+h1, h2, h3, h4 {
+    font-family: 'Raleway', sans-serif;
+}
+
 /***********/
 /* GENERAL */
 /***********/
@@ -77,6 +128,34 @@ a {
 }
 
 
-/****************/
-/* TESTIMONIALS */
-/****************/
+/*****************/
+/* PRODUCT CARDS */
+/*****************/
+
+
+.product-card-container{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.card2{
+    margin-top: 30px;
+    border: 1px solid black;
+}
+.product-price {
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin: 0 10px;
+}
+
+.old-price {
+    text-decoration: line-through;
+}
+
+.f-green {
+    color: #03cc75;
+  }
+
+.f-red{
+    color: #f32f2f}

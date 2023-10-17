@@ -5,9 +5,39 @@
 {% block body %}
 
 
-<div class="example-wrapper">
-    <h1> Voici la page de Catalogue ✅</h1>
+    <h1 class=" lh-1 mb-5 text-center">Découvrez notre catalogue et les promotions de Mercadona</h1>
 
-    
+
+<div class="container">
+
+    <div class="row">
+    {% for product in products %}
+        <div class="col-md-3">
+        <div class="card" style="width: 100%;">
+            <img src="http://dummyimage.com/150x110/999/fff" class="card-img-top" alt="Image du produit 1">
+            <div class="card-body">
+            <h3 class="card-title"> {{ product.name }} </h3>
+            <p class="card-title"> Catégorie:{{ product.category }} </p>
+            <p class="card-text"> {{ product.description }} </p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                {% if (product.discount is same as (null)) %}
+                    <span class="product-price f-green">{{ product.price }} € </span>
+                {% else %}
+                    <span class="product-price f-green old-price"> {{ product.price}} €</span>
+                    {# ERREUR ICI  #}
+                    <span class="product-price f-red"> {{ product.price * (product.discount.discount_percentage / 100) }} €  </span>
+                    
+                {% endif %}
+                </div>
+            </li>
+            </ul>
+        </div>
+        </div>
+    {% endfor %}
 </div>
+</div>
+
 {% endblock %}
