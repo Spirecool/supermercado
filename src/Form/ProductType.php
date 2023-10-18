@@ -29,10 +29,20 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('image_file')
-            
             ->add('discount')
+            ->add('start_date', DateType::class, [
+                'widget' => 'single_text',
+                'label' => 'Date de début de la promotion (sous la forme AAAA-MM-JJ)',
+                'html5' => false,
+                'format' => 'YYYY-MM-dd',
+            ])
+            ->add('end_date', DateType::class, [
+                'widget' => 'single_text',
+                'label' => 'Date de fin de la promotion (sous la forme AAAA-MM-JJ)',
+                'html5' => false,
+                'format' => 'YYYY-MM-dd',
+            ])
             ->add('user')
-        
             ->add('category')
         ;
     }

@@ -9,9 +9,11 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Catégorie</th>
                 <th>Nom</th>
                 <th>Description</th>
                 <th>Prix</th>
+                <th>Promotion (en %)</th>
                 <th>Image</th>
                 <th>Actions</th>
             </tr>
@@ -20,9 +22,11 @@
         {% for product in products %}
             <tr>
                 <td>{{ product.id }}</td>
+                <td>{{ product.category }}</td>
                 <td>{{ product.name }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price / 100 }}</td>
+                <td>{{ product.discount}}</td>
                 <td>{{ product.imageFile }}</td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}"> Voir </a>
@@ -37,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_new') }}">Create new</a>
+    <a href="{{ path('app_product_new') }}"> Créer un nouveau produit </a>
 {% endblock %}
