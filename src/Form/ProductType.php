@@ -42,12 +42,14 @@ class ProductType extends AbstractType
                 'widget' => 'single_text',
                 'label' => 'Date de début de la promotion (sous la forme AAAA-MM-JJ)',
                 'html5' => false,
+                'required' => false,
                 'format' => 'YYYY-MM-dd',
             ])
             ->add('end_date', DateType::class, [
                 'widget' => 'single_text',
                 'label' => 'Date de fin de la promotion (sous la forme AAAA-MM-JJ)',
                 'html5' => false,
+                'required' => false,
                 'format' => 'YYYY-MM-dd',
             ])
             ->add('user')

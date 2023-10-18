@@ -49,19 +49,63 @@ h1, h2, h3, h4 {
     font-family: 'Raleway', sans-serif;
 }
 
-/***********/
-/* GENERAL */
-/***********/
+
+
+
+/*****************/
+/* GLOBAL STYLES */
+/*****************/
 
 a {
     text-decoration: none;
     color: #00AB60;
 }
 
-/***************/
-/* ADMIN CARDS */
-/***************/
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    transition :0.6s;
+}
 
+button:hover {
+    background-color: #2bf29c;
+}
+
+.btn-create {
+    background-color: #00AB60;
+}
+
+.btn-create:hover {
+    background-color: #2bf29c;
+}
+
+.btn-delete {
+    background-color: #ee0a0a;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #f55959;
+}
+
+.btn-modificate {
+    background-color: #C81ED7;
+}
+
+.btn-modificate:hover {
+    background-color: #e263ed;
+}
+
+.btn-create a,
+.btn-delete a,
+.btn-modificate a{
+    color: white
+}
+.btn-create a,
+.btn-delete a {
+    color: white;
+}
 
 .cards-list {
     z-index: 0;
@@ -108,8 +152,8 @@ a {
     letter-spacing: 1.2px;
     color: white;
     font-size: 22px;
-    
 }
+
 .card-home:hover {
     transform: scale(1.1, 1.1);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
@@ -162,4 +206,29 @@ a {
 
 #welcome-message {
     margin-right: 20px;
+}
+
+/************/
+/* TABLEAUX */
+/************/
+
+
+th {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.blue {
+    color: rgb(95, 136, 224);
+}
+.green {
+    /* color: var(--green); */
+    color: #00AB60;
+}
+
+.purple {
+    color: rgb(200, 30, 215);
+}
+.red {
+    color: red;
 }

@@ -14,10 +14,10 @@
     {% for product in products %}
         <div class="col-md-3">
         <div class="card" style="width: 100%;">
-            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="Image du produit">
+            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="Image du produit" style="max-width:100%">
             <div class="card-body">
-            <h3 class="card-title"> {{ product.name }} </h3>
-            <p class="card-title fst-italic"> Catégorie:{{ product.category }} </p>
+            <h5 class="card-title"> {{ product.name }} </h5>
+            <p class="card-title fst-italic"> Catégorie : {{ product.category }} </p>
             <p class="card-text"> {{ product.description }} </p>
             </div>
             <ul class="list-group list-group-flush">

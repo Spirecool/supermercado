@@ -11,9 +11,9 @@
                 <th>Id</th>
                 <th>Catégorie</th>
                 <th>Nom</th>
-                <th>Description</th>
+
                 <th>Prix</th>
-                <th>Promotion (en %)</th>
+                <th>Promotion (%)</th>
                 <th>Image</th>
                 <th>Actions</th>
             </tr>
@@ -23,14 +23,14 @@
             <tr>
                 <td>{{ product.id }}</td>
                 <td>{{ product.category }}</td>
-                <td>{{ product.imageName }}</td>
-                <td>{{ product.description }}</td>
+                <td>{{ product.name}}</td>
                 <td>{{ product.price / 100 }}</td>
                 <td>{{ product.discount}}</td>
-                <td> <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt=""></td>
+                <td> <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="" style="max-width: 50px"></td>
                 <td>
-                    <a href="{{ path('app_product_show', {'id': product.id}) }}"> Voir </a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}"> Modifier </a>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}"> <i class="fa-solid fa-eye blue"></i> </a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}"> <i class="fa-solid fa-pen purple"></i> </a>
+                    <a href="{{ path('app_product_delete', {'id': product.id}) }}"><i class="fa-solid fa-trash-can red"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_product_new') }}"> Créer un nouveau produit </a>
+    <button class="btn-create"> <a href="{{ path('app_product_new') }}"> Créer un nouveau produit </a> </button>
 {% endblock %}
