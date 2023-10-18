@@ -16,13 +16,7 @@
 
             <li class="nav-item">
             {% if is_granted('ROLE_ADMIN') %}
-                <a class="nav-link active" aria-current="page" href="/admin/dashboard"> Dashboard </a>
-            {% else %}
-                <a class="nav-link active" aria-current="page" href="/"> Accueil </a>
-            {% endif %}
-            </li>
-            
-            {% if is_granted('ROLE_ADMIN') %}
+                <a class="nav-link" aria-current="page" href="/admin/dashboard"> Dashboard </a>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Gestion
@@ -33,20 +27,22 @@
                         <li><a class="dropdown-item" href="/admin/utilisateurs"> Utilisateurs </a></li>
                     </ul>
                 </li>
+            {% else %}
+                <a class="nav-link" aria-current="page" href="/"> Accueil </a>
             {% endif %}
+            </li>
 
             <li class="nav-item">
-            <a class="nav-link" href="/catalogue">Catalogue</a>
+                <a class="nav-link" href="/catalogue">Catalogue</a>
             </li>
-                <li>
-                <button class="navbar-btn btn btn-sm btn-primary lift ms-auto"> Contact </button>
+            <li class="nav-item"> 
+                <a class="nav-link" href="/contact">Contact</a>
             </li>
-
         
         </ul>
         
         {% if app.user %}
-            <span class="text-dark pt-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</span>
+            <span class="text-dark pt-2 pr-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</span>
             
             <a href="/deconnexion" class="logout" >
                 <i class="fa-solid fa-arrow-right-from-bracket"></i> 
@@ -54,11 +50,10 @@
             </a>
             
         {% else %}
-            {# <a href="/connexion" class="login" >
-                <i class="fa-solid fa-arrow-right-to-bracket"></i>  #}
             <a href="/connexion" class="login" >
                 <i class="fa-regular fa-user"></i> 
-                Se connecter</a>
+                Se connecter
+            </a>
         {% endif %}
 
         </div>
