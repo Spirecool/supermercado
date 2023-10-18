@@ -24,9 +24,9 @@
             <li class="list-group-item">
                 <div class="row">
                     {% if (product.discount is same as (null)) %}
-                        <span class="product-price f-green">{{ product.price }} € </span>
+                        <span class="product-price f-green">{{ (product.price / 100 ) | number_format(2, ',', '.')  }} € </span>
                     {% else %}
-                    <span class="product-price f-green old-price"> {{ product.price}} €</span> #}
+                    <span class="product-price f-green old-price"> {{ (product.price / 100) | number_format(2, ',', '.') }} €</span>
 
                     <span class="product-price f-red"> {{ ( (product.price - product.price * (product.discount / 100)) / 100) | number_format(2, ',', '.') }} €  </span>
             
