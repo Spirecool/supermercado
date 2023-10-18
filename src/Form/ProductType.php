@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints\Positive;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProductType extends AbstractType
 {
@@ -28,7 +29,14 @@ class ProductType extends AbstractType
                     )
                 ]
             ])
-            ->add('image_file')
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image du produit',
+                'label_attr' => [
+                    'class' => 'form-label mt-4'
+                ],
+                'required' => false
+            ])
+
             ->add('discount')
             ->add('start_date', DateType::class, [
                 'widget' => 'single_text',

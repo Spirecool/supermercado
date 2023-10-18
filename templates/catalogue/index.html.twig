@@ -14,7 +14,7 @@
     {% for product in products %}
         <div class="col-md-3">
         <div class="card" style="width: 100%;">
-            <img src="http://dummyimage.com/150x110/999/fff" class="card-img-top" alt="Image du produit 1">
+            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" class="card-img-top" alt="Image du produit">
             <div class="card-body">
             <h3 class="card-title"> {{ product.name }} </h3>
             <p class="card-title fst-italic"> Catégorie:{{ product.category }} </p>

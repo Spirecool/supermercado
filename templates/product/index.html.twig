@@ -23,11 +23,11 @@
             <tr>
                 <td>{{ product.id }}</td>
                 <td>{{ product.category }}</td>
-                <td>{{ product.name }}</td>
+                <td>{{ product.imageName }}</td>
                 <td>{{ product.description }}</td>
                 <td>{{ product.price / 100 }}</td>
                 <td>{{ product.discount}}</td>
-                <td>{{ product.imageFile }}</td>
+                <td> <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt=""></td>
                 <td>
                     <a href="{{ path('app_product_show', {'id': product.id}) }}"> Voir </a>
                     <a href="{{ path('app_product_edit', {'id': product.id}) }}"> Modifier </a>

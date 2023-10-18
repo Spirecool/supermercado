@@ -4,11 +4,16 @@ namespace App\Entity;
 
 use DateTimeImmutable;
 use DateTimeInterface;
+use Vich\UploadableField;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[Vich\Uploadable]
+
 class Product
 {
     #[ORM\Id]
@@ -25,8 +30,11 @@ class Product
     #[ORM\Column(type: Types::INTEGER)]
     private ?string $price = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image_file = null;
+    #[Vich\UploadableField(mapping: 'products_images', fileNameProperty: 'imageName')]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $imageName = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -86,18 +94,15 @@ class Product
         return $this;
     }
 
-    public function getImageFile(): ?string
+    public function setImageName(?string $imageName): void
     {
-        return $this->image_file;
+        $this->imageName = $imageName;
     }
 
-    public function setImageFile(?string $image_file): static
+    public function getImageName(): ?string
     {
-        $this->image_file = $image_file;
-
-        return $this;
+        return $this->imageName;
     }
-
 
     public function getUser(): ?User
     {
@@ -162,5 +167,21 @@ class Product
         $this->end_date = $end_date;
 
         return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->imageName;
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 }
