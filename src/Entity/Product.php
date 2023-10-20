@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[Vich\Uploadable]
@@ -31,6 +32,10 @@ class Product
     private ?string $price = null;
 
     #[Vich\UploadableField(mapping: 'products_images', fileNameProperty: 'imageName')]
+    #[Assert\File(
+        mimeTypes: ["image/jpeg"],
+        mimeTypesMessage: "Veuillez télécharger un fichier image au format JPEG (jpg)."
+    )]
     private ?File $imageFile = null;
 
     #[ORM\Column(nullable: true)]

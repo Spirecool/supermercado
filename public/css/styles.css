@@ -28,13 +28,6 @@ Table of contents
     font-size: 16px;
 }
 
-/**************/
-/* 02 - FONTS */
-/**************/
-@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-
-
-
 
 
 /**************/
@@ -49,6 +42,10 @@ h1, h2, h3, h4 {
     font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+    margin: 32px;
+    color: #00AB60;
+}
 
 
 
@@ -231,4 +228,19 @@ th {
 }
 .red {
     color: red;
+}
+
+
+
+/***************/
+/* FORMULAIRES */
+/***************/
+
+.form-error {
+    color: red;
+}
+
+label {
+    font-weight: 600;
+    margin-top: 1.6em;
 }
