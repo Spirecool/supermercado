@@ -72,6 +72,7 @@ button:hover {
 
 .btn-create {
     background-color: #00AB60;
+    color: white;
 }
 
 .btn-create:hover {

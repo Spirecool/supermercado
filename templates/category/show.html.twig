@@ -18,9 +18,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_index') }}"> Retour à la liste des catégories </a>
+    <a href="{{ path('app_category_index') }}"> Retour à la liste des catégories </a> <br>
 
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}"> Modifier </a>
+    <button class="btn-modificate my-4"> <a href="{{ path('app_category_edit', {'id': category.id}) }}"> Modifier la catégorie </a> </button>
 
     {{ include('category/_delete_form.html.twig') }}
 {% endblock %}

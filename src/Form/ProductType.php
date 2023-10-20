@@ -7,6 +7,8 @@ use App\Form\UserType;
 use DateTimeImmutable;
 use App\Entity\Product;
 use App\Entity\Category;
+use Doctrine\ORM\EntityRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
@@ -76,6 +78,10 @@ class ProductType extends AbstractType
                 'class' => Category::class,
                 'choice_label' => 'label',
                 'label' => 'Choisissez la catégorie du produit',
+                'query_builder' => function(CategoryRepository $cr){
+                    return $cr->createQueryBuilder('c')
+                        ->orderBy('c.label', 'ASC');
+                }
             ])
         ;
     }

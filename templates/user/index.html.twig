@@ -11,8 +11,8 @@
                 <th>Id</th>
                 <th>E-mail</th>
                 <th>Rôles</th>
-                <th>Prénom</th>
                 <th>Nom</th>
+                <th>Prénom</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,11 +22,15 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.getRoleUser() }}</td>
-                <td>{{ user.lastname }}</td>
+                <td>{{ user.lastname | upper}}</td>
                 <td>{{ user.firstname }}</td>
                 <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}"> Voir </a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}"> Modifier </a>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
+                    <a href="{{ path('app_user_delete', {'id': user.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
+
+                    {# <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}"> <i class="fa-solid fa-pen purple"></i> </a> #}
                 </td>
             </tr>
         {% else %}
@@ -37,5 +41,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_new') }}"> Créer un nouvel utilisateur </a>
+    <a href="{{ path('app_user_new') }}"> 
+        <button class="btn-create my-5"> Créer un nouvel utilisateur </button>
+    </a>
 {% endblock %}

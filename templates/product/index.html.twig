@@ -28,9 +28,9 @@
                 <td>{{ product.discount}}</td>
                 <td> <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="" style="max-width: 50px"></td>
                 <td>
-                    <a href="{{ path('app_product_show', {'id': product.id}) }}"> <i class="fa-solid fa-eye blue"></i> </a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}"> <i class="fa-solid fa-pen purple"></i> </a>
-                    <a href="{{ path('app_product_delete', {'id': product.id}) }}"><i class="fa-solid fa-trash-can red"></i></a>
+                    <a href="{{ path('app_product_show', {'id': product.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                    <a href="{{ path('app_product_edit', {'id': product.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
+                    <a href="{{ path('app_product_delete', {'id': product.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
                 </td>
             </tr>
         {% else %}
@@ -41,5 +41,13 @@
         </tbody>
     </table>
 
-    <button class="btn-create"> <a href="{{ path('app_product_new') }}"> Créer un nouveau produit </a> </button>
+    <a href="{{ path('app_product_new') }}"> 
+        <button class="btn-create"> Créer un nouveau produit </button>
+    </a>
+    
+    {# <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script> #}
+
+
 {% endblock %}

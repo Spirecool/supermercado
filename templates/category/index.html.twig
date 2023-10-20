@@ -19,8 +19,12 @@
                 <td>{{ category.id }}</td>
                 <td>{{ category.label }}</td>
                 <td>
-                    <a href="{{ path('app_category_show', {'id': category.id}) }}"> Voir </a>
-                    <a href="{{ path('app_category_edit', {'id': category.id}) }}"> Modifier </a>
+                    <a href="{{ path('app_category_show', {'id': category.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                    <a href="{{ path('app_category_edit', {'id': category.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
+                    <a href="{{ path('app_category_delete', {'id': category.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
+
+                    {# <a href="{{ path('app_category_show', {'id': category.id}) }}"> Voir </a>
+                    <a href="{{ path('app_category_edit', {'id': category.id}) }}"> Modifier </a> #}
                 </td>
             </tr>
         {% else %}
@@ -31,5 +35,8 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_category_new') }}">Créer une nouvelle catégorie</a>
+    <a href="{{ path('app_category_new') }}"> 
+        <button class="btn-create my-5"> Créer une nouvelle catégorie </button>
+    </a>
+    
 {% endblock %}

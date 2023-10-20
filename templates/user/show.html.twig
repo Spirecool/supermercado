@@ -30,9 +30,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_user_index') }}"> Retour à la liste des utilisateurs </a>
+    <a href="{{ path('app_user_index') }}"> Retour à la liste des utilisateurs </a> <br>
 
-    <a href="{{ path('app_user_edit', {'id': user.id}) }}"> Modifier l'utilisateur </a>
+    <button class="btn-modificate my-4"> 
+        <a href="{{ path('app_user_edit', {'id': user.id}) }}"> Modifier l'utilisateur </a>
+    </button>
 
     {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

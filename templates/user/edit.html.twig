@@ -4,8 +4,9 @@
 
 {% block body %}
     <h1> Modifier l'utilisateur : {{ user.firstname }} {{ user.lastname }} </h1>
+    
 
-    {{ include('user/_form.html.twig', {'button_label': 'Enregistrer l\'utilisateur'}) }}
+    {{ include('user/_form.html.twig', {'button_label': 'Mettre à jour l\'utilisateur'}) }}
 
     <a href="{{ path('app_user_index') }}"> Retour à la liste des utilisateurs </a>
 
