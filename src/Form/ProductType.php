@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use DateTime;
+use App\Form\UserType;
 use DateTimeImmutable;
 use App\Entity\Product;
 use App\Entity\Category;
@@ -21,7 +22,9 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', options: [
+                'label' => 'Nom'
+            ])
             ->add('description')
             ->add('price', MoneyType::class, options:[
                 'label' => 'Prix',
@@ -33,7 +36,7 @@ class ProductType extends AbstractType
                 ]
             ])
             ->add('imageFile', VichImageType::class, [
-                'label' => 'Image du produit (uniquement en format .jpeg, .jpg ou .png)',
+                'label' => 'Image (uniquement en format .jpeg, .jpg ou .png)',
                 'label_attr' => [
                     'class' => 'form-label mt-4'
                 ],
@@ -41,7 +44,7 @@ class ProductType extends AbstractType
             ])
 
             ->add('discount', options:[
-                'label' => 'Montant de la promotion',
+                'label' => '% de la promotion',
                 'constraints' => [
                     new Positive([
                         'message' => 'La promotion ne peux pas être négative'
@@ -66,7 +69,9 @@ class ProductType extends AbstractType
                 'required' => false,
                 'format' => 'YYYY-MM-dd',
             ])
-            ->add('user')
+            ->add('user', options: [
+                'label' => 'Utilisateur',
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'label',

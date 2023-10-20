@@ -15,17 +15,20 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('email', options: [
+                'label' => 'E-mail'
+            ])
             // ->add('roles')
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'allow_extra_fields' => true,
                 'mapped' => false,
+                'label' => 'Mot-de-passe',
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Please enter a password',
+                        'message' => 'Veuillez saisir un mot-de-passe',
                     ]),
                     new Regex([
                         'pattern' => '/^(?=.*\d)(?=.*[A-Z])(?=.*[!#$%&*+\/=?^_`{|}~-])(?!.*(.)\1{2}).*[a-z].{8,}$/m',
@@ -34,9 +37,15 @@ class UserType extends AbstractType
                     ])
                 ],
             ])
-            ->add('lastname')
-            ->add('firstname')
-            ->add('roleUser')
+            ->add('lastname', options: [
+                'label' => 'Nom de famille'
+            ])
+            ->add('firstname', options: [
+                'label' => 'Prénom'
+            ])
+            ->add('roleUser', options: [
+                'label' => 'Rôle'
+            ])
         ;
     }
 
