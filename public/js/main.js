@@ -1,4 +1,4 @@
-// TOOLTIP
+// TOOLTIPS
 
 tippy('#tooltip-show', {
     content: 'Voir',
@@ -14,3 +14,24 @@ tippy('#tooltip-delete', {
     content: 'Supprimer',
     placement: 'top',
 })
+
+tippy('#tooltip-contact', {
+    content: 'Contactez-nous',
+    placement: 'top',
+})
+
+tippy('#tooltip-login', {
+    content: 'Connectez-vous',
+    placement: 'top',
+})
+
+tippy('#tooltip-logout', {
+    content: 'Déconnectez-vous',
+    placement: 'top',
+})
+
+
+// // Dynamic year
+
+// const date = new Date().getFullYear();
+// document.getElementById("year").innerHTML = date;

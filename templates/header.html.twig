@@ -42,17 +42,23 @@
         </ul>
         
         {% if app.user %}
-            <span class="text-dark pt-2 pr-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</span>
             
-            <a href="/deconnexion" class="logout" >
-                <i class="fa-solid fa-arrow-right-from-bracket"></i> 
-                Se déconnecter 
-            </a>
+            <li class="text-dark pt-2 pr-2" id="welcome-message">Bienvenue {{ app.user.firstname}}</li>
+            
+            <li class=""><a href="/contact"><i class="fa-regular fa-envelope item-mail" id="tooltip-contact" ></i></a></li>
+            
+            <li>
+                <a href="/deconnexion" class="logout" >
+                    <i class="fa-solid fa-arrow-right-from-bracket" id="tooltip-logout"></i>  
+                </a>
+            </li>
             
         {% else %}
+            <li class="" ><a href="/contact"><i class="fa-regular fa-envelope mr-3 item-mail" id="tooltip-contact"></i></a></li>
+
             <a href="/connexion" class="login" >
-                <i class="fa-regular fa-user"></i> 
-                Se connecter
+                <i class="fa-regular fa-user" id="tooltip-login"></i> 
+                {# Se connecter #}
             </a>
         {% endif %}
 
@@ -60,3 +66,7 @@
     </div>
     </nav>
 </div>
+
+<script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6.3.7/dist/tippy-bundle.umd.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>

@@ -32,7 +32,13 @@
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
+    <!-- <server
+        name="DATABASE_URL"
+        value="mysql://root:@127.0.0.1:3306/symfony"
+        force="true"
+    /> -->
 
     <extensions>
+        <extension class="Symfony\Component\Panther\ServerExtension" />
     </extensions>
 </phpunit>

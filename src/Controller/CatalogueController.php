@@ -4,9 +4,9 @@ namespace App\Controller;
 
 
 use App\Repository\ProductRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CatalogueController extends AbstractController
 {
@@ -17,4 +17,5 @@ class CatalogueController extends AbstractController
             'products' => $productRepository->findAll(),
         ]);
     }
+    
 }

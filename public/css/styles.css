@@ -3,8 +3,8 @@
 Table of contents
 ------------------------------------------------
 01. reset css
-02. fonts
-03. global styles
+02. gobal styles
+03. fonts
 04. header
 05. footer
 06. contact
@@ -12,6 +12,11 @@ Table of contents
 08. login
 09. responsive CSS
 
+*/
+
+:root {
+    --primary-color: #00AB60;
+  }
 
 /******************/
 /* 01 - RESET CSS */
@@ -43,20 +48,36 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    margin: 32px;
-    color: #00AB60;
+    color: var(--primary-color)
 }
 
 
-
-/*****************/
-/* GLOBAL STYLES */
-/*****************/
+/**********************/
+/* 03 - GLOBAL STYLES */
+/**********************/
 
 a {
     text-decoration: none;
     color: #00AB60;
 }
+
+
+/***************/
+/* 04 - HEADER */
+/***************/
+
+
+.item-mail {
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 455px) {
+    .item-mail {
+        margin: 20px 0;
+    }
+}
+
+
 
 button {
     border: none;
@@ -246,3 +267,9 @@ label {
     font-weight: 600;
     margin-top: 1.6em;
 }
+
+
+/* .icon{
+    font-size: 1.5rem;
+    margin-right: 20px;
+} */
