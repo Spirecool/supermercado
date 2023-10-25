@@ -1,10 +1,12 @@
+
+    
 <footer>
         <div class="container mt-4 pt-5">
             <div class="row">
                 <div class="col-12 col-sm-4 text-center bold mb-4 ">
                     <p class="fw-bold">Pages Légales</p>
                     <a href ="/mentions-legales" data-bs-toogle="tooltip" title="Mentions légales de Green Fit"> Mentions Légales </a><br>
-                    <a href ="/cookies" data-bs-toogle="tooltip" title="Lien vide car page fictive"> Cookies </a>
+                    <a href ="/cookies" data-bs-toogle="tooltip" title="Lien vide car page fictive"> Politique de confidentialité & Cookies </a>
                 </div>
                 <div class="col-12 col-sm-4 text-center mb-4">
                     <a href="/">
@@ -21,10 +23,14 @@
                         </svg>
                     </a>
                 </div>
-                    <p class="text-center"> Copyright &copy; <span id="year"></span>  Jérôme OLLIVIER - Tous droits réservés</p>
+                    <p class="text-center"> Copyright &copy; <span id="copyrightYear"></span>  Jérôme OLLIVIER - Tous droits réservés</p>
             </div>
         </div>
     </footer>
     
-    <script type="text/javascript" src="{{ asset('js/date.js') }}"></script>
-    
+    <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+    <script>
+        let copyrightYearElement = document.getElementById("copyrightYear");
+        let currentYear = new Date().getFullYear();
+        copyrightYearElement.textContent = currentYear;
+    </script>

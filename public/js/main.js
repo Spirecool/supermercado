@@ -31,7 +31,9 @@ tippy('#tooltip-logout', {
 })
 
 
-// // Dynamic year
+//Dynamic year
 
-// const date = new Date().getFullYear();
-// document.getElementById("year").innerHTML = date;
+
+// let copyrightYearElement = document.getElementById("copyrightYear");
+// let currentYear = new Date().getFullYear();
+// copyrightYearElement.textContent = currentYear;

@@ -3,20 +3,20 @@
 Table of contents
 ------------------------------------------------
 01. reset css
-02. gobal styles
-03. fonts
-04. header
-05. footer
-06. contact
-07. homepage
-08. login
-09. responsive CSS
+02. fonts
+03. global styles
+04. buttons
+05. header
+06. dashboard cards
+07. products cards
+08. dashboard arrays
+09. dashboard forms
 
 */
 
 :root {
     --primary-color: #00AB60;
-  }
+}
 
 /******************/
 /* 01 - RESET CSS */
@@ -63,20 +63,8 @@ a {
 
 
 /***************/
-/* 04 - HEADER */
+/* 04 - BUTTONS */
 /***************/
-
-
-.item-mail {
-    margin: 0 20px;
-}
-
-@media screen and (max-width: 455px) {
-    .item-mail {
-        margin: 20px 0;
-    }
-}
-
 
 
 button {
@@ -126,6 +114,27 @@ button:hover {
 .btn-delete a {
     color: white;
 }
+
+
+/***************/
+/* 05 - HEADER */
+/***************/
+
+
+.item-mail {
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 455px) {
+    .item-mail {
+        margin: 20px 0;
+    }
+}
+
+/**************************/
+/* 06 - DASHBOARD'S CARDS */
+/**************************/
+
 
 .cards-list {
     z-index: 0;
@@ -192,9 +201,9 @@ button:hover {
 }
 
 
-/*****************/
-/* PRODUCT CARDS */
-/*****************/
+/***********************/
+/* 07 - PRODUCTS CARDS */
+/***********************/
 
 
 .product-card-container{
@@ -228,9 +237,9 @@ button:hover {
     margin-right: 20px;
 }
 
-/************/
-/* TABLEAUX */
-/************/
+/*************************/
+/* 08 - DASHBOARD ARRAYS */
+/*************************/
 
 
 th {
@@ -255,9 +264,9 @@ th {
 
 
 
-/***************/
-/* FORMULAIRES */
-/***************/
+/************************/
+/* 09 - DASHBOARD FORMS */
+/************************/
 
 .form-error {
     color: red;
@@ -273,3 +282,4 @@ label {
     font-size: 1.5rem;
     margin-right: 20px;
 } */
+
