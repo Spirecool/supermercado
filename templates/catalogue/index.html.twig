@@ -15,10 +15,9 @@
         <label for="category">Trier par catégorie :</label>
         <select name="category" id="category" class="form-control">
             <option value="">Toutes les catégories</option>
-            <option value="">Boissons</option>
-                    {# {% for category in categories %}
-                        <option value="{{ category.id }}" {% if selectedCategory == category.id %}selected{% endif %}>{{ category.label }}</option>
-                    {% endfor %} #}
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.label }}</option>
+            {% endfor %}
         </select>
     </div>
     <button type="submit" class="btn-create mb-5">Trier</button>
