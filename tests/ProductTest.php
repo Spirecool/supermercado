@@ -14,3 +14,4 @@ class ProductTest extends TestCase
             $this->assertEmpty($product->getLabel());
     }
 }
+

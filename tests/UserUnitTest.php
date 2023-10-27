@@ -54,3 +54,4 @@ class UserUnitTest extends TestCase
         $this->assertNotSame('false@false.com', $user->getEmail());
     }
 }
+

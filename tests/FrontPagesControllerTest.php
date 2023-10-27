@@ -27,3 +27,4 @@ class FrontPagesControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 }
+

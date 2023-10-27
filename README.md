@@ -1,7 +1,7 @@
 # Mercadona
 
-![Logo](https://mercadona.herokuapp.com/images/logo.png)
-[Accéder au projet en ligne](https://mercadona.herokuapp.com/)
+![Logo](https://mercadona.popdev.fr/images/logo_mercadona.png)
+[Accéder au projet en ligne](https://mercadona.popdev.fr/)
 
 
 ## Table des matières
@@ -51,7 +51,7 @@ Jérôme OLLIVIER
 
 - **Front-end:** HTML / CSS /Javascript /Bootstrap 5
 - **Moteur de template:** Twig
-- **Back-end:** PHP 8, Symfony 5.4
+- **Back-end:** PHP 8.2, Symfony 5.4 (Long-Term Support Release )
 - **Base de données:** MySQL - Maria DB
 
 ## 5. Prérequis 
@@ -103,33 +103,13 @@ Pour tester le projet en local, lancez xampp, mamp, ou le logiciel que vous util
 
 ### Insérer le fichier SQL dans la base de données :
 
-Utilisez le fichier mercadona.sql situé dans le dossier Annexes du projet pour créer votre base de données. Attention, pour pouvoir utiliser les différents comptes utilisateur, il faudra changer les mots de passe et les encoder avant de lancer les requêtes.
-
-<!-- Ou bien : 
-
-Créez la base de données avec le terminal du projet
-
-```bash
-$ php bin/console doctrine:database:create
-```
-
-Exécutez les migrations
-```bash
-$ php bin/console doctrine:migrations:migrate
-``` -->
-
-### Créer un compte admin
-
-Si vous démarrez de zéro, vous devrez commencer par ajouter un compte admin dans la table user avec un mot de passe pré-encodé avec Bcrypt : https://www.bcrypt.fr/ La commande SQL est la suivante :
-```sql
-INSERT INTO `users`(`email`, `roles`, `password`, `lastname`, `firstname`, `address`, `zipcode`, `city`, `roles_users_id`) VALUES ('votre email','[\"ROLE_ADMIN"\]','mot de passe encrypté','votre nom de famille','votre prénom','votre adresse','votre code postal','votre ville','1')
-```
+Utilisez le fichier mercadona.sql situé dans le dossier Annexes (du Drive) du projet pour créer votre base de données. 
 
 #### Variables d'environnement
 
 Ajoutez les fichiers de configuration des variables d'environnement (.env, .env.local).
 
-Ce projet nécessite le paramétrage de APP_ENV, APP_SECRET, DATABASE_URL ET MAILER_DSN
+Ce projet nécessite le paramétrage de APP_ENV, APP_SECRET et DATABASE_URL
 Pensez à supprimer ces variables d'environnemnt de votre fichier .env, avant votre premier push sur GitHub et ne les mettre que dans le fichier .env.local
 
 Saisissez vos identifiants PhpMyAdmin et définissez le nom de votre base de données dans la variable suivante :
@@ -158,56 +138,6 @@ Pour plus d'informations, vous pouvez lire la documentations symfony :
 Pour le déploiement en ligne, il vous suffira de créer un compte Heroku. Une fois le projet clôné sur un compte github, la connection peut être établie de diverses façons:
 
 1. Par les CLI heroku depuis la console VSCODE par exemple.
-<!-- Après avoir installé Heroku CLI, depuis le terminal du projet, connectez-vous à Heroku :
-
-```bash
-heroku login
-```
-
-Créez un nouveau projet sur Heroku :
-
-```bash
-heroku create nom-du-projet
-```
-Puis relier l'application web à votre dépôt Heroku : 
-
-Ajoutez une base de données à votre projet sur Heroku, en installant un add-on. Vous pouvez prendre ClearDB MySQL qui est gratuit. 
-
-Définisez les variables d'environnement sur Heroku :
-
-Depuis le terminal du projet :
-
-```bash
-heroku create nom-du-projet
-``````
-
-Configurez l'environnement en environnement de production en reprenant les informations de votre base de données locale
-
-```bash
-heroku config:set DATABASE_URL="mysql://..."
-```
-Enfin, définissez les variables suivantes
-
-```bash
-APP_ENV=prod
-APP_SECRET=
-MAILER_DSN=
-MESSENGER_TRANSPORT_DSN
-KEY
-```
-
-Deployez l'application :
-Exécutez les commandes suivantes :
-
-```bash
-heroku config:set DATABASE_URL="mysql://..."
-```
-
-En cas d'erreur, verifiez les logs avec la commande : 
-
-```bash
-heroku logs --tail
-``` -->
 
 2. En automatisant le déploiement sur la branche principale de votre github. Pour cela il faudra choisir l'option adéquate depuis le dashboard de Heroku dans l'onglet deploy. *
 3. De façon manuelle, en sélection la branche à déployer en bas de la page deploy. 
@@ -224,24 +154,15 @@ PEnsez à paramétrer les variables d'environnement (APP_ENV, APP_SECRET, DATABA
 
 ## 7. Documents complémentaires
 
-Les documents demandés sont dans le répertoire "annexes":
-- Guide déploiement au format PDF
-- Manuel d'utilisation au format html (slides)
-- Manuel d'utilisation au format PDF
-- Questions et réflexion, document technique
+Le manuel d'utilisation au format html (slides) est dans le répertoire "ANNEXES" de ce repository.  
 
 Les autres documents nécessaires à mon projet sont sur mon Google Drive (le lien est sur la copie)
-- Les User Stories
-- La sécurité de l'application
-- Les choix techniques
-- Le MCD
-- Le MLD 
-- Le MPD
-- La documentation technique
-- Le manuel d'utilisation
+- Les tâches du projet
+- La modélisation de la base de données 
+- Les schémas de la base de données (méthode Merise)
+- Le sitemap
+- Les routes de l'application
+- La documentation technique (sécurité & évolutions futures)
+- Le manuel d'utilisation de l'application 
 
-Le lien du tableau Kanban est : 
-
-Login compte Admin : admin@mercadona.fr
-Password : PasswordAdmin23
 

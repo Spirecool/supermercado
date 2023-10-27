@@ -25,3 +25,4 @@ class CategoryTest extends TestCase
         $this->assertSame('test', $category->getlabel());
     }
 }
+
