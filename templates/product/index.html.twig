@@ -5,44 +5,45 @@
 {% block body %}
     <h1> Liste des produits </h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Catégorie</th>
-                <th>Nom</th>
+    <div class="table-responsive-xl mt-5 ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Catégorie</th>
+                    <th>Nom</th>
 
-                <th>Prix</th>
-                <th>Promotion (%)</th>
-                <th>Image</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for product in products %}
-            <tr>
-                <td>{{ product.id }}</td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.name}}</td>
-                <td>{{ product.price / 100 }}</td>
-                <td>{{ product.discount}}</td>
-                <td> <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="" style="max-width: 50px"></td>
-                <td>
-                    <a href="{{ path('app_product_show', {'id': product.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
-                    <a href="{{ path('app_product_edit', {'id': product.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
-                    <a href="{{ path('app_product_delete', {'id': product.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7"> Aucun résultat trouvé </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+                    <th>Prix</th>
+                    <th>Promotion (%)</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.name}}</td>
+                    <td>{{ product.price / 100 }}</td>
+                    <td>{{ product.discount}}</td>
+                    <td> <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="" style="max-width: 50px"></td>
+                    <td>
+                        <a href="{{ path('app_product_show', {'id': product.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                        <a href="{{ path('app_product_edit', {'id': product.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
+                        <a href="{{ path('app_product_delete', {'id': product.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7"> Aucun résultat trouvé </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <a href="{{ path('app_product_new') }}"> 
-        <button class="btn-create"> Créer un nouveau produit </button>
+        <button class="btn-create my-5"> Créer un nouveau produit </button>
     </a>
     
     {# <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

@@ -1,46 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %} Liste des utilisateurs {% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    <h1>Liste des utilisateurs </h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>E-mail</th>
-                <th>Rôles</th>
-                <th>Nom</th>
-                <th>Prénom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.getRoleUser() }}</td>
-                <td>{{ user.lastname | upper}}</td>
-                <td>{{ user.firstname }}</td>
-                <td>
-                    <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
-                    <a href="{{ path('app_user_delete', {'id': user.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
+    <div class="table-responsive-xl mt-5 ">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>E-mail</th>
+                    <th>Rôles</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.getRoleUser() }}</td>
+                    <td>{{ user.lastname | upper}}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>
+                        <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                        <a href="{{ path('app_user_edit', {'id': user.id}) }}"> <i class="fa-solid fa-pen purple" id="tooltip-edit"></i> </a>
+                        <a href="{{ path('app_user_delete', {'id': user.id}) }}"><i class="fa-solid fa-trash-can red" id="tooltip-delete"></i></a>
 
-                    {# <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
-                    <a href="{{ path('app_user_edit', {'id': user.id}) }}"> <i class="fa-solid fa-pen purple"></i> </a> #}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8"> Aucun résultat trouvé </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+                        {# <a href="{{ path('app_user_show', {'id': user.id}) }}"> <i class="fa-solid fa-eye blue" id="tooltip-show"></i> </a>
+                        <a href="{{ path('app_user_edit', {'id': user.id}) }}"> <i class="fa-solid fa-pen purple"></i> </a> #}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8"> Aucun résultat trouvé </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <a href="{{ path('app_user_new') }}"> 
         <button class="btn-create my-5"> Créer un nouvel utilisateur </button>
     </a>
