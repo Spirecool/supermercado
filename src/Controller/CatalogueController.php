@@ -26,7 +26,6 @@ class CatalogueController extends AbstractController
         return $this->render('catalogue/index.html.twig', [
             'products' => $products,
             'categories' => $categories,
-         
         ]);
     }
 }

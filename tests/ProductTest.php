@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class ProductTest extends TestCase
 {
-    public function testIsTrue(): void
+    public function testCategoryIsTrue(): void
     {
         $product = new Category();
 

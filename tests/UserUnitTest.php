@@ -10,7 +10,7 @@ class UserUnitTest extends TestCase
 
 {
     
-    public function testIsTrue(): void
+    public function testUserIsCreated(): void
     {
         $user = new User();
 
@@ -27,7 +27,7 @@ class UserUnitTest extends TestCase
         $this->assertSame('prenom@nom.com', $user->getEmail());
     }
 
-    public function testIsEmpty(): void
+    public function testUserCreationIsEmpty(): void
     {
         $user = new User();
 
@@ -37,7 +37,7 @@ class UserUnitTest extends TestCase
             $this->assertEmpty($user->getPassword());
     }
 
-    public function testIsFalse(): void
+    public function testUserIsNotCreated(): void
     {
         $user = new User();
 

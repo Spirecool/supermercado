@@ -27,7 +27,7 @@ class ProductRepository extends ServiceEntityRepository
             ->andWhere('p.category = :val')
             ->setParameter('val', $value)
             ->orderBy('p.name', 'ASC')
-            ->setMaxResults(10)
+            // ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;

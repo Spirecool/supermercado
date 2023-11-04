@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FrontPagesControllerTest extends WebTestCase
 {
-    public function testHomepage(): void
+    public function testHomepageIsAccessible(): void
     {
         $client = static::createClient();
         $client->request('GET', '/');
@@ -18,7 +18,7 @@ class FrontPagesControllerTest extends WebTestCase
         // Réussite de la réponse : on vérifie que la réponse est réussie (200 OK)
         $this->assertResponseIsSuccessful();
     }
-    public function testCatalogue(): void
+    public function testCataloguePageIsAccessible(): void
     {
         $client = static::createClient();
         $client->request('GET', '/catalogue');

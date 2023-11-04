@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class CategoryTest extends TestCase
 {
-    public function testIsTrue(): void
+    public function testCategoryIsCreated(): void
     {
         $category = new Category();
 
@@ -16,7 +16,7 @@ class CategoryTest extends TestCase
         $this->assertSame('test', $category->getlabel());
     }
 
-    public function testIsFalse(): void
+    public function testCategoryIsNotCreated(): void
     {
         $category = new Category();
 
